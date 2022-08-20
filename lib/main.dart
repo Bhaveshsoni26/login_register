@@ -1,10 +1,24 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:login_register/Sign_up.dart';
 
 void main(){
-  runApp(loginPage());
+  runApp(MyApp());
 }
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: loginPage(),
+    );
+  }
+}
+
+
 class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);
 
@@ -106,6 +120,17 @@ class _loginPageState extends State<loginPage> {
                             }
                           },
                           child: Text('Submit'),
+                        ),
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const SignupPage()));
+                          },
+                          child: Text('Sign up',
+                          style: TextStyle(
+                            fontSize: 35
+                          ),),
                         )
                       ],
                     ),
